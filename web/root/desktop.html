@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grafitti Magic</title>
+    <link rel="stylesheet" href="desktop.css" />
+
+    <link rel="icon" href="/public/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F7931A" />
+    <link rel="apple-touch-icon" href="/public/logo192.png" />
+    <link rel="manifest" href="/public/manifest.json" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+    name="description"
+    content="Pixel by pixel, battle for a space in the decentralized NFT on Merlin Chain using Runes and ordinals ▣"
+    />
+    <meta name="keywords" content="r/place, place, bitcoin, runes, land, nft, game, merlin, pixel" />
+    <link rel="preload" href="/place.png" as="fetch" crossorigin />
+    <style>
+      #colorCanvas {
+        cursor: crosshair;
+        width: 255px !important;
+        border: 1px solid grey;
+      }
+    </style>
+    </head>
+  </head>
+
+  <body>
+    <canvas id="viewport-canvas" oncontextmenu="return false;"></canvas>
+    <div id="ui-wrapper">
+      <p id="loading-p"></p>
+      <div id="color-wrapper">
+   
+        <div id="colorPickerPopup">
+          <canvas id="colorCanvas" width="255" height="255"></canvas>
+        </div>
+        <div id="inputColor">
+          <div id="colorWatch"></div>
+           <input type="text" id="colorPickerInput" value="#f7931a">
+        </div>
+      </div>
+      <div id="zoom-wrapper">
+        <button class="zoom-button" id="zoom-out">-</button>
+        <button class="zoom-button" id="zoom-in">+</button>
+      </div>
+
+      <button
+      id="help-button"
+      onclick="document.querySelector('#help-popup').style.visibility === 'visible' ? document.querySelector('#help-popup').style.visibility = 'hidden': document.querySelector('#help-popup').style.visibility = 'visible';"
+    >
+      <p><strong>Menu</strong></p>
+    </button>
+    </div>
+    <div>
+
+      <div class="header">    
+        <button id="connectWallet">Connect Unisat</button>
+        <input id="pixelAmount" readonly/>
+      </div>
+    
+    </div>
+    
+
+    
+    <div id="help-popup">
+
+      <div id="help-text-desktop">
+   
+      <div id="help-text-mobile">
+        <p><strong>Tap</strong> to place a pixel.</p>
+        <br />
+        <p>
+          <strong>Pinch</strong> to zoom or use the <strong>+</strong> and
+          <strong>-</strong> buttons.
+        </p>
+        <br />
+        <p><strong>Long press</strong> to select a color from the canvas.</p>
+        <br />
+      </div>
+
+	  
+      
+      <div style="display: flex; align-items: center;">
+        <img
+        src="/public/pixel.png" 
+        width="50" 
+        height="50" 
+        alt="PIXEL RUNE"
+        style="margin-top: -2px; margin-right: 10px;"
+        />
+        
+      <div style="display: flex; flex-direction: column;">
+        <strong>Grafitti Magic</strong>
+        <div style="font-size: 8px;">Powered by 
+          
+          <span 
+            style="color: white; text-decoration: none;;"
+          >
+          <strong>Merlin Chain</strong>
+        </span>
+        </div>
+      </div>
+      </div>
+      <p style="font-size: 10px; margin-top: 2px;">
+        In the shadow of Yggdrasil, the World Tree, lies a <strong>digital canvas</strong>, a canvas pulsating with ancient magic <strong>runes</strong> and modern wonder. Here, users wield their runes, <strong>painting pixel by pixel</strong>, weaving threads of lore and legend. The <strong>NFTs</strong>, more than mere art, become gateways to realms beyond, where gods and giants tread. 
+      </p>
+      <br />
+      <p><strong>Requirements</strong></p>
+      <p style="font-size: 10px; margin-top: 2px;">- Connect you wallet  <img
+        id="checkedWallet"
+        src="/public/checked.png" width="16" height="16" alt="Merlin Grafitti Magic Checked"
+      /></p>
+      
+      <p style="font-size: 10px;">
+        - Hold at least 1 inscription 
+        <img
+          id="checkedInscription"
+          src="/public/checked.png" width="16" height="16" alt="Merlin Grafitti Magic Checked"
+        />
+        <img
+          id="notCheckedInscription"
+          src="/public/unchecked.png" width="16" height="16" alt="Merlin Grafitti Magic Checked"
+        />
+      </p> 
+      
+
+      <br />
+      <p><strong>How to play</strong></p>
+      
+	    <p style="font-size: 10px; margin-top: 2px;">1. Use <strong>left click</strong> to move the board</p>
+	    <p style="font-size: 10px;">2. Select your color</p>
+      
+	    <p style="font-size: 10px; margin-top: -3px;">3. Use <strong>right click</strong> to paint 
+      <img
+        src="/public/right.png" 
+        width="16" 
+        height="16" 
+        alt="Mouse Right click"
+        />
+      </p>
+      
+      <br />
+      
+      
+
+      <p><strong>Ragnarok</strong></p>
+      <p style="font-size: 10px; margin-top: 2px;">
+        A cosmic battle where pixels clash, and the very fabric of reality trembles. 
+        Rare Ragnarok NFTs emerge while battles between communities' runes and inscriptions.
+      </p>
+      <br />
+      
+
+    <div style="display: flex; gap: 8px;">
+    <p>
+      <a 
+        href="https://dorahacks.io/buidl/15688"" 
+        target="_blank"
+        rel="noreferrer"
+        id="twitterLink"
+        style="color: white;"
+      >
+      Docs
+    </a> 
+       <img
+      id="Docs"
+      src="/public/checked.png" width="16" height="16" alt="Bitcoin Docs"
+    />
+  </p>
+</div>
+      <button
+        id="close-help-popup"
+        onclick="document.querySelector('#help-popup').style.visibility = 'hidden';"
+      >
+        <strong>X</strong>
+      </button>
+      
+    </div>
+    
+    <div id="mobileWarning">
+      
+      <img src="/public/pixel.png" alt="Pixel Game Place Image" width="100" height="100"/>
+      <img src="/place.png" alt="Pixel Game Place Image" />
+      <p style="margin-top: 16px;">Mobile is not support yet.</p>
+    </div>
+   <script>
+
+      document.querySelector('#help-popup').style.visibility = 'visible'
+      const pixelAmount = document.querySelector("#pixelAmount");
+
+      pixelAmount.value = localStorage.getItem("pixelAmount") || "0 points";
+      document.querySelector("#pixelAmount").style.display = "none";
+
+    </script>
+    <script src="main.js"></script>
+    <script src="place.js"></script>
+    <script src="glwindow.js"></script>
+    <script>
+      main();
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,7 @@
+#serve
+play desktop.html
+#place ws
+#place place.png
+#place stat
+#place verifykey
+#place points

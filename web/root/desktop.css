@@ -1,0 +1,278 @@
+@font-face {
+  font-family: "Unibody";
+  src: local("Unibody"), url(./fonts/Unibody_8_Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Unibody Bold";
+  src: local("Unibody Bold"), url(./fonts/Unibody_8_Bold.ttf) format("truetype");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Unibody;
+}
+
+body {
+  overflow: hidden;
+  position: fixed;
+  -webkit-overflow-scrolling: touch;
+}
+
+#viewport-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  image-rendering: pixelated;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  cursor: crosshair;
+}
+
+#colorWatch {
+  width: 30px;
+  height: 30px;
+  background-color: #f7931a;
+  cursor: pointer;
+}
+#ui-wrapper {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: end;
+  width: 100%;
+  /* height: 100%; */
+  background-color: #ffffff;
+  transition: background 1s;
+}
+
+#ui-wrapper > #color-wrapper,
+#zoom-wrapper {
+  visibility: hidden;
+}
+
+#ui-wrapper[hide="true"] {
+  pointer-events: none;
+  background: none;
+}
+
+#ui-wrapper[hide="true"] > #color-wrapper,
+#zoom-wrapper {
+  visibility: visible;
+}
+#inputColor {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+  gap: 8px;
+  background: #040f21;
+  padding: 8px;
+  border: 2px solid white;
+}
+
+#color-wrapper {
+  /* position: absolute; */
+  /* bottom: 16px;
+  left: 16px; */
+  display: flex;
+  flex-direction: row;
+  z-index: 10;
+  border: none;
+  outline: none;
+  pointer-events: all;
+  display: flex;
+  flex-direction: column;
+}
+
+#color-swatch {
+  width: 30px;
+  height: 30px;
+  background-color: #000000;
+}
+#colorPickerPopup {
+  display: none;
+}
+
+#colorPickerInput {
+  font-size: 12px;
+  height: 24px;
+
+  padding: 1px;
+
+  outline: none;
+  pointer-events: all;
+  border: 2px solid white;
+  background: #000000;
+  color: white;
+}
+
+#loading-p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.4em;
+  transform: translate(-50%, -50%);
+}
+
+#zoom-wrapper {
+  /* position: absolute;
+  bottom: 16px;
+  left: 280px; */
+  gap: 8px;
+  background: #040f21;
+  padding: 8px;
+  border: 2px solid white;
+}
+
+.zoom-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 12px;
+  background: #000000;
+  border: 2px solid white;
+  cursor: pointer;
+  pointer-events: all;
+  user-select: none;
+  color: white;
+}
+
+#help-button {
+  pointer-events: all;
+  z-index: 9909;
+  height: 50px;
+  cursor: pointer;
+  background: #040f21;
+  padding: 8px;
+  border: 2px solid white;
+  font-size: 12px;
+  color: white;
+}
+
+#help-popup {
+  font-size: 12px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  width: 300px;
+  max-width: calc(100vw - 60px);
+  padding: 20px;
+  background: #040f21;
+  padding: 8px;
+  border: 2px solid white;
+  visibility: visible;
+  color: white;
+}
+
+#close-help-popup {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: inherit;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+#help-text-mobile {
+  display: none;
+}
+
+@media (hover: none) {
+  #help-text-desktop {
+    display: none;
+  }
+
+  #help-text-mobile {
+    display: inline;
+  }
+}
+
+#pixelAmount {
+  width: 120px;
+  text-align: center;
+
+  font-size: 12px;
+  color: white;
+  background: white;
+  /* padding: 6px; */
+  /* width: 110px; */
+
+  background: #040f21;
+  border: 2px solid white;
+  height: 36px;
+}
+
+#connectWallet {
+  color: white;
+  background: white;
+
+  background: #040f21;
+  padding: 8px 16px;
+  border: 2px solid white;
+  cursor: pointer;
+  /* height: 36px; */
+}
+
+#customLink {
+  color: white;
+  background: transparent;
+  cursor: pointer;
+}
+#mobileWarning {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  background: #040f21;
+  cursor: pointer;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: end;
+  align-items: end;
+}
+
+strong {
+  font-family: Unibody Bold;
+}
+
+#checkedInscription {
+  margin-bottom: -4px;
+  display: none;
+}
+#checkedWallet {
+  margin-bottom: -4px;
+  display: none;
+}
+#notCheckedInscription {
+  margin-bottom: -4px;
+  display: none;
+}
+#checkedTwitter {
+  margin-bottom: -4px;
+  display: none;
+}
